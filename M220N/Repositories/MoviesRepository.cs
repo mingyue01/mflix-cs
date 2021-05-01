@@ -122,7 +122,13 @@ namespace M220N.Repositories
             //   .Project(...)
             //   .ToListAsync(cancellationToken);
 
-            return null;
+            //return null;           
+
+            return await _moviesCollection
+              .Find(m => m.Countries.Any(c => countries.Contains(c)))
+              .SortByDescending(m => m.Title)
+              .Project<MovieByCountryProjection>(Builders<Movie>.Projection.Include(x => x.Title).Include(x => x.Id))
+              .ToListAsync(cancellationToken);
         }
 
         /// <summary>
