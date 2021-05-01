@@ -1,0 +1,9 @@
+
+M220N/bin
+.vs/M220N/v16/.suo
+.vs/M220N/DesignTimeBuild/.dtbcache.v2
+M220N/obj/
+M220NTests/bin
+M220NTests/obj
+Migrator/bin
+Migrator/obj
