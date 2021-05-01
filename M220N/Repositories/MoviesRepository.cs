@@ -209,7 +209,19 @@ namespace M220N.Repositories
             // include pagination. Refer to the other methods in this class
             // if you need a hint.
 
-            return returnValue;
+            //returnValue = await _moviesCollection
+            //    .Find(Builders<Movie>.Filter.In("genres", genres))
+            //    .ToListAsync(cancellationToken);
+
+            //return returnValue;
+
+
+            return await _moviesCollection
+                .Find(Builders<Movie>.Filter.In("genres", genres))
+                .Limit(DefaultMoviesPerPage)
+                .Skip(page * limit)
+                .Sort(sort)
+                .ToListAsync(cancellationToken);
         }
 
         /// <summary>
