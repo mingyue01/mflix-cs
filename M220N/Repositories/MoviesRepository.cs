@@ -218,7 +218,7 @@ namespace M220N.Repositories
 
             return await _moviesCollection
                 .Find(Builders<Movie>.Filter.In("genres", genres))
-                .Limit(DefaultMoviesPerPage)
+                .Limit(limit)
                 .Skip(page * limit)
                 .Sort(sort)
                 .ToListAsync(cancellationToken);
