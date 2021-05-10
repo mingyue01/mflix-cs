@@ -268,7 +268,9 @@ namespace M220N.Repositories
                 matchStage,
                 sortStage,
                 // add the remaining stages in the correct order
-
+                skipStage,
+                limitStage,                
+                facetStage
             };
 
             // I run the pipeline you built
